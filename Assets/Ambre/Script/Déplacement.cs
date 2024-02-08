@@ -19,14 +19,11 @@ public class Déplacement : MonoBehaviour
 
     public void Onshoot(InputAction.CallbackContext _context)
     {
-        valeur += 1;
-
-        if (valeur == 3)
+        if (_context.performed)
         {
             Instantiate(Boomerang, transform.position, transform.rotation);
 
             Debug.Log("je tire");
-            valeur -= 3;
         }
     }
 
@@ -35,7 +32,5 @@ public class Déplacement : MonoBehaviour
         Vector3 mouvement = new Vector3(Value.x, 0, Value.y);
         mouvement.Normalize();
         transform.Translate(speed * mouvement * Time.deltaTime);
-
-
     }
 }

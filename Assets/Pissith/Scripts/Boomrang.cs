@@ -2,22 +2,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Boomrang : MonoBehaviour
+public class Boomerang : MonoBehaviour
 {
-    public Rigidbody p_boomrang;
- 
+    bool isRecup;
+    bool isThrow;
+    Transform player;
+
     void Start()
     {
-        
+        // Get the player transform
+        player = GameObject.FindWithTag("Player").transform;
     }
-
 
     void Update()
     {
-
-        if (Input.GetKeyUp(KeyCode.Escape))
+        if (isRecup)
         {
-           //*Instantiate(p_boomrang);
+            if (isThrow)
+            {
+                transform.position += player.forward * 10 * Time.deltaTime;
+            }
         }
+
     }
 }

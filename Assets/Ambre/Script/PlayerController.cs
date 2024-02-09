@@ -5,12 +5,21 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
+    public Transform[] spawnpoint;
+
     public float speed;
     
     public Vector2 Value;
     public GameObject Boomerang;
 
     public float rotationspeed;
+
+    void Start()
+    {
+        Transform randomPoint = spawnpoint[Random.Range(0, spawnpoint.Length)];
+
+        this.gameObject.transform.position = randomPoint.position;
+    }
 
     public void OnMove(InputAction.CallbackContext context)
     {

@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
     public GameObject Boomerang;
 
     public float rotationspeed;
+    public Transform Générateur;
 
     void Start()
     {
@@ -30,7 +31,7 @@ public class PlayerController : MonoBehaviour
     {
         if (context.performed)
         {
-            Instantiate(Boomerang, transform.position, transform.rotation);
+            Instantiate(Boomerang, Générateur.position, transform.rotation);
         }
     }
 

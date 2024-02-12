@@ -8,12 +8,15 @@ public class PlayerController : MonoBehaviour
     public Transform[] spawnpoint;
 
     public float speed;
-    
+
+    public Rigidbody rb;
     public Vector2 Value;
     public GameObject Boomerang;
 
     public float rotationspeed;
     public Transform Générateur;
+
+    public bool lancer = true;
 
     void Start()
     {
@@ -29,14 +32,20 @@ public class PlayerController : MonoBehaviour
 
     public void OnShoot(InputAction.CallbackContext context)
     {
-        if (context.performed)
+        if (lancer == true)
         {
-            Instantiate(Boomerang, Générateur.position, transform.rotation);
+            if (context.performed)
+            {
+                GameObject go = Instantiate(Boomerang, Générateur.position, transform.rotation);
+                go.GetComponent<Boomerang>().lancer = this;
+                lancer = false;
+            }
         }
     }
 
     private void Update()
     {
+        rb.velocity = Vector3.zero;
         Vector3 mouvement = new Vector3(Value.x, 0, Value.y);
         mouvement.Normalize();
         transform.Translate(speed * mouvement * Time.deltaTime, Space.World);

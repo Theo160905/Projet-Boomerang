@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class Baamrang : MonoBehaviour
+public class Boomerang : MonoBehaviour
 {
     [SerializeField]
     private Rigidbody rb;
@@ -36,7 +36,6 @@ public class Baamrang : MonoBehaviour
             if (time < 1.5f)
             {
                 Retour();
-                Destroy(gameObject);
             }
         }
     }

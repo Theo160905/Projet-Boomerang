@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class Baamrang : MonoBehaviour
+public class Boomerang : MonoBehaviour
 {
     private float time;
 

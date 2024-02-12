@@ -439,6 +439,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &350810794 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5220383427890897869, guid: 1e5c66d2b4790c9429a0993af9a7164b, type: 3}
+  m_PrefabInstance: {fileID: 1480132633}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &460695303 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1659912535810779462, guid: e7d28aebcc580c14ea69c8d64fcd239b, type: 3}
@@ -468,7 +473,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 711630551}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 6.8, y: 1.2, z: 8.91}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -711,24 +716,8 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2433485650643839256, guid: 1e5c66d2b4790c9429a0993af9a7164b, type: 3}
-      propertyPath: m_UseGravity
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2433485650643839256, guid: 1e5c66d2b4790c9429a0993af9a7164b, type: 3}
-      propertyPath: m_Constraints
-      value: 112
-      objectReference: {fileID: 0}
-    - target: {fileID: 3091485667797434296, guid: 1e5c66d2b4790c9429a0993af9a7164b, type: 3}
-      propertyPath: rb
-      value: 
-      objectReference: {fileID: 1968944163}
     - target: {fileID: 3091485667797434296, guid: 1e5c66d2b4790c9429a0993af9a7164b, type: 3}
       propertyPath: Boomerang
-      value: 
-      objectReference: {fileID: 460695303}
-    - target: {fileID: 3091485667797434296, guid: 1e5c66d2b4790c9429a0993af9a7164b, type: 3}
-      propertyPath: Boomerange
       value: 
       objectReference: {fileID: 460695303}
     - target: {fileID: 3091485667797434296, guid: 1e5c66d2b4790c9429a0993af9a7164b, type: 3}
@@ -972,17 +961,12 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3091485667797434296, guid: 1e5c66d2b4790c9429a0993af9a7164b, type: 3}
   m_PrefabInstance: {fileID: 1480132633}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 350810794}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d4ea65ede75b06348b5e3a8822ebfa41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!54 &1968944163 stripped
-Rigidbody:
-  m_CorrespondingSourceObject: {fileID: 2433485650643839256, guid: 1e5c66d2b4790c9429a0993af9a7164b, type: 3}
-  m_PrefabInstance: {fileID: 1480132633}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2722559279434369469
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -995,6 +979,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Boomerangprefab
       objectReference: {fileID: 0}
+    - target: {fileID: 4671251613208249998, guid: e7d28aebcc580c14ea69c8d64fcd239b, type: 3}
+      propertyPath: joueur
+      value: 
+      objectReference: {fileID: 350810794}
     - target: {fileID: 4671251613208249998, guid: e7d28aebcc580c14ea69c8d64fcd239b, type: 3}
       propertyPath: lancer
       value: 

@@ -101,7 +101,7 @@ GameObject:
   - component: {fileID: 4741450029368223177}
   m_Layer: 0
   m_Name: Capsule
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -309,11 +309,13 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  speed: 10
+  speed: 8.5
+  rb: {fileID: 2433485650643839256}
   Value: {x: 0, y: 0}
   Boomerang: {fileID: 0}
   rotationspeed: 720
   "G\xE9n\xE9rateur": {fileID: 1200787738094058013}
+  lancer: 1
 --- !u!114 &4741450029368223177
 MonoBehaviour:
   m_ObjectHideFlags: 0

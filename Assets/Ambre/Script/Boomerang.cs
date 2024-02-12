@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class Baamrang : MonoBehaviour
+public class Boomerang : MonoBehaviour
 {
     private float time = 0.75f;
     internal float currentTime = 0;
 
     Vector3 retour;
 
-    private float vitesse = 20;
+    private float vitesse = 17;
 
     public PlayerController lancer;
 
@@ -24,10 +24,9 @@ public class Baamrang : MonoBehaviour
 
         if (currentTime > time)
         {
-            if (currentTime < time*2)
+            if (currentTime < time * 2)
             {
                 Retour();
-                Destroy(gameObject);
             }
         }
     }
@@ -46,13 +45,20 @@ public class Baamrang : MonoBehaviour
         float a = vitesse * Time.deltaTime;
         transform.position = Vector3.MoveTowards(position, position_cible, a);
     }
-    void OnCollisionEnter(Collision collider)
+    void OnCollisionEnter(Collision other)
     {
-        if (currentTime > 2)
+        if (currentTime < 1)
         {
-            lancer.lancer = true;
-            Destroy(gameObject);
+            var block = GameObject.FindWithTag("Player");
+            Destroy(block);
+        }
+        if (currentTime > 1)
+        {
+            if (other.gameObject.tag == "Player")
+            {
+                lancer.lancer = true;
+                Destroy(gameObject);
+            }
         }
     }
 }
-

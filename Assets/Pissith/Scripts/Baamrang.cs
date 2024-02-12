@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class Boomerang : MonoBehaviour
+public class Baamerang : MonoBehaviour
 {
     [SerializeField]
     private Rigidbody rb;

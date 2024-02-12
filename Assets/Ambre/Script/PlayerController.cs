@@ -43,7 +43,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         rb.velocity = Vector3.zero;
         Vector3 mouvement = new Vector3(Value.x, 0, Value.y);

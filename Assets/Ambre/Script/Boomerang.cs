@@ -3,37 +3,28 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class Baamrang : MonoBehaviour
+public class Boomerang : MonoBehaviour
 {
-    [SerializeField]
-    private Rigidbody rb;
+    private float time = 0.75f;
+    internal float currentTime = 0;
 
-    private float time;
-
-    public Transform retour;
+    Vector3 retour;
 
     private float vitesse = 20;
-    public Vector3 GetObjectCoordinates(GameObject targetObject)
-    {
-        return targetObject.transform.position;
-    }
+
+    public PlayerController lancer;
 
     void FixedUpdate()
     {
-        time += 1 * Time.deltaTime;
-        if (time < 0.75f)
+        currentTime += Time.deltaTime;
+        if (currentTime < time)
         {
             Shoot();
         }
 
-        if (time == 0.75f)
+        if (currentTime > time)
         {
-            
-        }
-
-        if (time > 0.75f)
-        {
-            if (time < 1.5f)
+            if (currentTime < time*2)
             {
                 Retour();
                 Destroy(gameObject);
@@ -45,19 +36,23 @@ public class Baamrang : MonoBehaviour
     void Shoot()
     {
         transform.Translate(Vector3.forward * vitesse * Time.deltaTime);
-        //rb.AddForce(Vector3.forward * vitesse, ForceMode.Impulse);
-        //Vector3 position = transform.position;
-        //Vector3 position_cible = direction.position;
-        //float a = vitesse * Time.deltaTime;
-        //rb.AddForce(Vector3.forward * 10f, ForceMode.Impulse);
+        retour = lancer.transform.position;
     }
 
     void Retour()
     {
         Vector3 position = transform.position;
-        Vector3 position_cible = retour.position;
+        Vector3 position_cible = retour;
         float a = vitesse * Time.deltaTime;
         transform.position = Vector3.MoveTowards(position, position_cible, a);
+    }
+    void OnCollisionEnter(Collision collider)
+    {
+        if (currentTime > 2)
+        {
+            lancer.lancer = true;
+            Destroy(gameObject);
+        }
     }
 }
 

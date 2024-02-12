@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class Boomerang : MonoBehaviour
+public class Baamrang : MonoBehaviour
 {
     private float time = 0.75f;
     internal float currentTime = 0;
@@ -27,6 +27,7 @@ public class Boomerang : MonoBehaviour
             if (currentTime < time*2)
             {
                 Retour();
+                Destroy(gameObject);
             }
         }
     }

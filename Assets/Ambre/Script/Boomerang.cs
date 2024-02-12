@@ -5,9 +5,10 @@ using UnityEngine.UIElements;
 
 public class Boomerang : MonoBehaviour
 {
-    private float time;
+    private float time = 0.75f;
+    internal float currentTime = 0;
 
-    public Transform retour;
+    Vector3 retour;
 
     private float vitesse = 20;
 
@@ -15,15 +16,15 @@ public class Boomerang : MonoBehaviour
 
     void FixedUpdate()
     {
-        time += 1 * Time.deltaTime;
-        if (time < 0.75f)
+        currentTime += Time.deltaTime;
+        if (currentTime < time)
         {
             Shoot();
         }
 
-        if (time > 0.75f)
+        if (currentTime > time)
         {
-            if (time < 1.5f)
+            if (currentTime < time*2)
             {
                 Retour();
             }
@@ -34,18 +35,19 @@ public class Boomerang : MonoBehaviour
     void Shoot()
     {
         transform.Translate(Vector3.forward * vitesse * Time.deltaTime);
+        retour = lancer.transform.position;
     }
 
     void Retour()
     {
         Vector3 position = transform.position;
-        Vector3 position_cible = retour.position;
+        Vector3 position_cible = retour;
         float a = vitesse * Time.deltaTime;
         transform.position = Vector3.MoveTowards(position, position_cible, a);
     }
-    void OnCollisionEnter(Collision Player)
+    void OnCollisionEnter(Collision collider)
     {
-        if (time > 2)
+        if (currentTime > 2)
         {
             lancer.lancer = true;
             Destroy(gameObject);

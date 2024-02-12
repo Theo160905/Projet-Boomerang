@@ -18,7 +18,7 @@ public class UseBoomerang : MonoBehaviour
     public void ThrowBoommerang()
     {
         rb.AddForce(Vector3.up * 5f, ForceMode.Impulse);
-        rb.AddForce(Vector3.forward * 10f, ForceMode.Impulse);
+        rb.AddForce(transform.forward * 10f, ForceMode.Impulse);
         Debug.Log("Lancé");
         StartCoroutine(ReturnToPlayer());
     }

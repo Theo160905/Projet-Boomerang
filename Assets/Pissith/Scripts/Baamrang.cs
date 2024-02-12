@@ -3,15 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class Baamrang : MonoBehaviour
+public class Boomerang : MonoBehaviour
 {
+    [SerializeField]
+    private Rigidbody rb;
+
     private float time;
 
     public Transform retour;
 
     private float vitesse = 20;
-
-    public PlayerController lancer;
+    public Vector3 GetObjectCoordinates(GameObject targetObject)
+    {
+        return targetObject.transform.position;
+    }
 
     void FixedUpdate()
     {
@@ -21,12 +26,16 @@ public class Baamrang : MonoBehaviour
             Shoot();
         }
 
+        if (time == 0.75f)
+        {
+            
+        }
+
         if (time > 0.75f)
         {
             if (time < 1.5f)
             {
                 Retour();
-                Destroy(gameObject);
             }
         }
     }
@@ -35,6 +44,11 @@ public class Baamrang : MonoBehaviour
     void Shoot()
     {
         transform.Translate(Vector3.forward * vitesse * Time.deltaTime);
+        //rb.AddForce(Vector3.forward * vitesse, ForceMode.Impulse);
+        //Vector3 position = transform.position;
+        //Vector3 position_cible = direction.position;
+        //float a = vitesse * Time.deltaTime;
+        //rb.AddForce(Vector3.forward * 10f, ForceMode.Impulse);
     }
 
     void Retour()
@@ -43,14 +57,6 @@ public class Baamrang : MonoBehaviour
         Vector3 position_cible = retour.position;
         float a = vitesse * Time.deltaTime;
         transform.position = Vector3.MoveTowards(position, position_cible, a);
-    }
-    void OnCollisionEnter(Collision Player)
-    {
-        if (time > 2)
-        {
-            lancer.lancer = true;
-            Destroy(gameObject);
-        }
     }
 }
 

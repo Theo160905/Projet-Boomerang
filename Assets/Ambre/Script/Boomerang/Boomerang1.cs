@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class Boomerang : MonoBehaviour
+public class Boomerang1 : MonoBehaviour
 {
     private float time = 0.75f;
     internal float currentTime = 0;
@@ -31,7 +31,6 @@ public class Boomerang : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
     void Shoot()
     {
         transform.Translate(Vector3.forward * vitesse * Time.deltaTime);
@@ -47,14 +46,38 @@ public class Boomerang : MonoBehaviour
     }
     void OnCollisionEnter(Collision other)
     {
-        if (currentTime < 1)
+        if (currentTime < 2)
         {
-            var block = GameObject.FindWithTag("Player");
-            Destroy(block);
+            if (other.gameObject.tag == "Player")
+            {
+                var block = GameObject.FindWithTag("Player");
+                Destroy(block);
+            }
+
+            if (other.gameObject.tag == "Player2")
+            {
+                var black = GameObject.FindWithTag("Player2");
+                Destroy(black);
+            }
+
+            if (other.gameObject.tag == "Player3")
+            {
+                var blick = GameObject.FindWithTag("Player3");
+                Destroy(blick);
+            }
+
+            if (currentTime > 1)
+            {
+                if (other.gameObject.tag == "Player1")
+                {
+                    lancer.lancer = true;
+                    Destroy(gameObject);
+                }
+            }
         }
         if (currentTime > 1)
         {
-            if (other.gameObject.tag == "Player")
+            if (other.gameObject.tag == "Player1")
             {
                 lancer.lancer = true;
                 Destroy(gameObject);

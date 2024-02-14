@@ -36,6 +36,7 @@ public class PlayerController : MonoBehaviour
         {
             if (context.performed)
             {
+                lancer = false;
                 GameObject go = Instantiate(Boomerang, Générateur.position, transform.rotation);
                 go.GetComponent<Boomerang>().lancer = this;
                 lancer = false;

@@ -1,10 +1,11 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
+
 
 public class Boomerang : MonoBehaviour
 {
+    public Rigidbody rb;
+
     private float time = 0.75f;
     internal float currentTime = 0;
 
@@ -12,13 +13,18 @@ public class Boomerang : MonoBehaviour
 
     private float vitesse = 17;
 
+    [SerializeField]
     public PlayerControllerAmbre lancer;
+
+    private bool isthrow = false;
+
 
     void FixedUpdate()
     {
         currentTime += Time.deltaTime;
         if (currentTime < time)
         {
+            isthrow = true;
             Shoot();
         }
 
@@ -27,12 +33,15 @@ public class Boomerang : MonoBehaviour
             if (currentTime < time * 2)
             {
                 Retour();
+                StartCoroutine(canrecup());
             }
         }
     }
 
     void Shoot()
     {
+
+        transform.Translate(Vector3.up*3f*Time.deltaTime);
         transform.Translate(Vector3.forward * vitesse * Time.deltaTime);
         retour = lancer.transform.position;
     }
@@ -42,45 +51,36 @@ public class Boomerang : MonoBehaviour
         Vector3 position = transform.position;
         Vector3 position_cible = retour;
         float a = vitesse * Time.deltaTime;
+        transform.Translate(Vector3.up * 3f * Time.deltaTime);
         transform.position = Vector3.MoveTowards(position, position_cible, a);
     }
+
+    IEnumerator canrecup()
+    {
+        yield return new WaitForSeconds(1f);
+        isthrow = false;
+    }
+
     void OnCollisionEnter(Collision other)
     {
-        if (currentTime < 2)
-        {
-            if (other.gameObject.tag == "Player1")
-            {
-                var block = GameObject.FindWithTag("Player1");
-                Destroy(block);
-            }
-
-            if (other.gameObject.tag == "Player2")
-            {
-                var black = GameObject.FindWithTag("Player2");
-                Destroy(black);
-            }
-
-            if (other.gameObject.tag == "Player3")
-            {
-                var blick = GameObject.FindWithTag("Player3");
-                Destroy(blick);
-            }
-
-            if (currentTime > 1)
-            {
-                if (other.gameObject.tag == "Player")
-                {
-                    lancer.lancer = true;
-                    Destroy(gameObject);
-                }
-            }
-        }
-        if (currentTime > 1)
+        if (isthrow == false)
         {
             if (other.gameObject.tag == "Player")
             {
                 lancer.lancer = true;
                 Destroy(gameObject);
+            }
+        }
+        else
+        {
+            if (other.gameObject.CompareTag("Player"))
+            {
+                var a = other.gameObject.GetComponent<PlayerControllerAmbre>().id;
+
+                if (a != lancer.id)
+                {
+                    Destroy(other.gameObject);
+                }
             }
         }
     }

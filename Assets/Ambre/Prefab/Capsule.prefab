@@ -151,7 +151,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: da6838b1da8dd87499d5009feb0a85b0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -305,12 +305,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 371bf9929c3288e448b1668387accddf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnpoint: []
-  speed: 8.5
   rb: {fileID: 2433485650643839256}
-  Value: {x: 0, y: 0}
   Boomerang: {fileID: 1659912535810779462, guid: e7d28aebcc580c14ea69c8d64fcd239b, type: 3}
-  rotationspeed: 720
   "G\xE9n\xE9rateur": {fileID: 1200787738094058013}
   lancer: 1
   id: 0

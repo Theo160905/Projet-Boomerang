@@ -1,21 +1,28 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class PlayerControllerAmbre : MonoBehaviour
 {
-    public Transform[] spawnpoint;
-
-    public float speed;
+    private List<Vector3> spawnpoint = new List<Vector3>
+    { 
+        new Vector3(-18.72f, 4.03f, -6.57f),
+        new Vector3(-20.04f, 4.03f, -21.1f),
+        new Vector3(-6.78f, 4.03f, -0.33f),
+        new Vector3(15.41f, 4.03f, -7.9f),
+        new Vector3(13.35f, 4.03f, -21.55f),
+        new Vector3(-4.95f, 4.03f, -20.7f),
+    };
 
     public Rigidbody rb;
-    public Vector2 Value;
     public GameObject Boomerang;
-
-    public float rotationspeed;
     public Transform Générateur;
-
+    
+    private float _speed = 8.5f;
+    private Vector2 Value;    
+    private float _rotationspeed = 720;
+    
+    [HideInInspector]
     public bool lancer = true;
 
     [HideInInspector]
@@ -23,9 +30,10 @@ public class PlayerControllerAmbre : MonoBehaviour
 
     void Start()
     {
-        Transform randomPoint = spawnpoint[Random.Range(0, spawnpoint.Length)];
+        var nb = Random.Range(0, spawnpoint.Count);
+        Vector3 randomPoint = spawnpoint[nb];
 
-        this.gameObject.transform.position = randomPoint.position;
+        this.gameObject.transform.position = randomPoint;
     }
 
     public void OnMove(InputAction.CallbackContext context)
@@ -52,12 +60,12 @@ public class PlayerControllerAmbre : MonoBehaviour
         rb.velocity = Vector3.zero;
         Vector3 mouvement = new Vector3(Value.x, 0, Value.y);
         mouvement.Normalize();
-        transform.Translate(speed * mouvement * Time.deltaTime, Space.World);
+        transform.Translate(_speed * mouvement * Time.deltaTime, Space.World);
 
         if (mouvement != Vector3.zero)
         {
             Quaternion toRotation = Quaternion.LookRotation(mouvement, Vector2.up);
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationspeed * Time.deltaTime);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, _rotationspeed * Time.deltaTime);
         }
     }
 }

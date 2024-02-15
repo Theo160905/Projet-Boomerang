@@ -14,7 +14,6 @@ public class PlayerManager : MonoBehaviour
     private float temps3;
     private float temps4;
 
-    // Update is called once per frame
     void FixedUpdate()
     {
         if (GameObject.FindWithTag("Player") != null)

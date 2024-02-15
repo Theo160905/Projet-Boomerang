@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerController : MonoBehaviour
+public class PlayerControllerAmbre : MonoBehaviour
 {
     public Transform[] spawnpoint;
 
@@ -17,6 +17,9 @@ public class PlayerController : MonoBehaviour
     public Transform Générateur;
 
     public bool lancer = true;
+
+    [HideInInspector]
+    public int id = 0;
 
     void Start()
     {

@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 [CreateAssetMenu(fileName = "New Character", menuName = "Character")]
 public class Character : ScriptableObject
 {
-    [SerializeField] PlayerController playerController;
+    [SerializeField] PlayerControllerAmbre playerController;
 
     public GameObject character;
 }

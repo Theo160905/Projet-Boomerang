@@ -407,13 +407,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 3029245843916182850}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d4ea65ede75b06348b5e3a8822ebfa41, type: 3}
+  m_Script: {fileID: 11500000, guid: 371bf9929c3288e448b1668387accddf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnpoint:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  spawnpoint: []
   speed: 8.5
   rb: {fileID: 73514920825872685}
   Value: {x: 0, y: 0}
@@ -421,6 +418,7 @@ MonoBehaviour:
   rotationspeed: 720
   "G\xE9n\xE9rateur": {fileID: 7296804373875541193}
   lancer: 1
+  id: 0
 --- !u!114 &4187418678075142307
 MonoBehaviour:
   m_ObjectHideFlags: 0

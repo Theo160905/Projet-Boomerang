@@ -12,7 +12,7 @@ public class Boomerang3 : MonoBehaviour
 
     private float vitesse = 17;
 
-    public PlayerController lancer;
+    public PlayerControllerAmbre lancer;
 
     void FixedUpdate()
     {

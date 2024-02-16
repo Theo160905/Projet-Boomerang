@@ -14,5 +14,6 @@ public class DisableJoinOnVictory : MonoBehaviour
     private void OnVictory()
     {
         _playerInputManager.DisableJoining();
+        Time.timeScale = 0f;
     }
 }

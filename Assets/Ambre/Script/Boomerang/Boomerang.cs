@@ -65,10 +65,11 @@ public class Boomerang : MonoBehaviour
     {
         if (isthrow == false)
         {
-            if (other.gameObject.tag == "Player")
+            if (other.gameObject.tag == "Player"  )
             {
-                lancer.lancer = true;
                 Destroy(gameObject);
+                var a = other.gameObject.GetComponent<PlayerControllerAmbre>().lancer = true;
+                
             }
         }
         else

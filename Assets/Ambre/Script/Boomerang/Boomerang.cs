@@ -1,6 +1,5 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.InputSystem.Controls;
 
 public class Boomerang : MonoBehaviour
 {
@@ -81,6 +80,7 @@ public class Boomerang : MonoBehaviour
                 if (a != lancer.id)
                 {
                     Destroy(other.gameObject);
+                    lancer.GetComponent<PlayerScore>().AddPoint();
                 }
                 else
                 {

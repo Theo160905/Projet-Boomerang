@@ -6,31 +6,31 @@ public class Boomerang : MonoBehaviour
 {
     public Rigidbody rb;
 
-    private float time = 0.75f;
-    internal float currentTime = 0;
+    private float _time = 0.75f;
+    internal float _currentTime = 0;
 
-    Vector3 retour;
+    Vector3 _retour;
 
     private float vitesse = 17;
 
     [SerializeField]
     public PlayerControllerAmbre lancer;
 
-    private bool isthrow = false;
+    private bool _isthrow = false;
 
 
     void FixedUpdate()
     {
-        currentTime += Time.deltaTime;
-        if (currentTime < time)
+        _currentTime += Time.deltaTime;
+        if (_currentTime < _time)
         {
-            isthrow = true;
+            _isthrow = true;
             Shoot();
         }
 
-        if (currentTime > time)
+        if (_currentTime > _time)
         {
-            if (currentTime < time * 2)
+            if (_currentTime < _time * 2)
             {
                 Retour();
                 StartCoroutine(canrecup());
@@ -43,13 +43,13 @@ public class Boomerang : MonoBehaviour
 
         transform.Translate(Vector3.up*3f*Time.deltaTime);
         transform.Translate(Vector3.forward * vitesse * Time.deltaTime);
-        retour = lancer.transform.position;
+        _retour = lancer.transform.position;
     }
 
     void Retour()
     {
         Vector3 position = transform.position;
-        Vector3 position_cible = retour;
+        Vector3 position_cible = _retour;
         float a = vitesse * Time.deltaTime;
         transform.Translate(Vector3.up * 3f * Time.deltaTime);
         transform.position = Vector3.MoveTowards(position, position_cible, a);
@@ -58,12 +58,12 @@ public class Boomerang : MonoBehaviour
     IEnumerator canrecup()
     {
         yield return new WaitForSeconds(1f);
-        isthrow = false;
+        _isthrow = false;
     }
 
     void OnCollisionEnter(Collision other)
     {
-        if (isthrow == false)
+        if (_isthrow == false)
         {
             if (other.gameObject.tag == "Player"  )
             {

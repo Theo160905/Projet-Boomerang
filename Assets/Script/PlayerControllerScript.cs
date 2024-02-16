@@ -2,8 +2,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerControllerAmbre : MonoBehaviour
+public class PlayerControllerScript : MonoBehaviour
 {
+    //Spawn pour les joueurs à différent endroit de la maps
     private List<Vector3> spawnpoint = new List<Vector3>
     { 
         new Vector3(-18.72f, 4.03f, -6.57f),
@@ -30,8 +31,9 @@ public class PlayerControllerAmbre : MonoBehaviour
 
     void Start()
     {
-        var nb = Random.Range(0, spawnpoint.Count);
-        Vector3 randomPoint = spawnpoint[nb];
+        //Fais spawn le joueurs
+        var random = Random.Range(0, spawnpoint.Count);
+        Vector3 randomPoint = spawnpoint[random];
 
         this.gameObject.transform.position = randomPoint;
     }

@@ -9,6 +9,6 @@ public class AddIdPlayer : MonoBehaviour
     public void OnPlayerJoined(PlayerInput input)
     {
         nb_joueur++;
-        input.gameObject.GetComponent<PlayerControllerAmbre>().id = nb_joueur;
+        input.gameObject.GetComponent<PlayerControllerScript>().id = nb_joueur;
     }
 }

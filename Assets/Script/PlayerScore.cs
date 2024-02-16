@@ -19,7 +19,7 @@ public class PlayerScore : MonoBehaviour
 
     private void Win()
     {
-        int playerId = GetComponentInParent<PlayerControllerAmbre>().id;
+        int playerId = GetComponentInParent<PlayerControllerScript>().id;
 
         VictoryManager.Instance.Win(playerId);
     }

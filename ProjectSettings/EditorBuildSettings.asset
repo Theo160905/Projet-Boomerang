@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/CENTRAL/MainMenu.unity
     guid: 36ef2b7ae8307f84594062c8d91c4b11
   - enabled: 1
-    path: "Assets/Th\xE9o/SceneTest.unity"
+    path: Assets/SceneTest.unity
     guid: 07fff98ce05810c419b8f785c14bc0ff
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: e4702780834ef0740ac7af7e57dd5a4b, type: 2}

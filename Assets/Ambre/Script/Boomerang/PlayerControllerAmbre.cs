@@ -4,6 +4,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerControllerAmbre : MonoBehaviour
 {
+    //Cette partie sert à faire spawn les joueurs aléatoirement
     private List<Vector3> spawnpoint = new List<Vector3>
     { 
         new Vector3(-18.72f, 4.03f, -6.57f),
@@ -19,7 +20,7 @@ public class PlayerControllerAmbre : MonoBehaviour
     public Transform Générateur;
     
     private float _speed = 8.5f;
-    private Vector2 Value;    
+    private Vector2 _Value;    
     private float _rotationspeed = 720;
     
     [HideInInspector]
@@ -30,6 +31,7 @@ public class PlayerControllerAmbre : MonoBehaviour
 
     void Start()
     {
+        //Fais apparaitre le joueur
         var nb = Random.Range(0, spawnpoint.Count);
         Vector3 randomPoint = spawnpoint[nb];
 
@@ -38,7 +40,7 @@ public class PlayerControllerAmbre : MonoBehaviour
 
     public void OnMove(InputAction.CallbackContext context)
     {
-        Value = context.ReadValue<Vector2>();
+        _Value = context.ReadValue<Vector2>();
     }
 
     public void OnShoot(InputAction.CallbackContext context)
@@ -58,7 +60,7 @@ public class PlayerControllerAmbre : MonoBehaviour
     private void FixedUpdate()
     {
         rb.velocity = Vector3.zero;
-        Vector3 mouvement = new Vector3(Value.x, 0, Value.y);
+        Vector3 mouvement = new Vector3(_Value.x, 0, _Value.y);
         mouvement.Normalize();
         transform.Translate(_speed * mouvement * Time.deltaTime, Space.World);
 

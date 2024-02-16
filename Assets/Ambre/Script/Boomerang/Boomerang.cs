@@ -5,64 +5,65 @@ public class Boomerang : MonoBehaviour
 {
     public Rigidbody rb;
 
-    private float time = 0.75f;
+    private float _time = 0.75f;
     internal float currentTime = 0;
-
+    private float _vitesse = 17;
     Vector3 retour;
-
-    private float vitesse = 17;
 
     [SerializeField]
     public PlayerControllerAmbre lancer;
 
-    private bool isthrow = false;
+    //Cette variable sert à savoir si le boomerange est entrain d'être lancer ou pas 
+    private bool _isthrow = false;
 
 
     void FixedUpdate()
     {
         currentTime += Time.deltaTime;
-        if (currentTime < time)
+        if (currentTime < _time)
         {
-            isthrow = true;
-            Shoot();
+            _isthrow = true;
+            Pars();
         }
 
-        if (currentTime > time)
+        if (currentTime > _time)
         {
-            if (currentTime < time * 2)
+            if (currentTime < _time * 2)
             {
                 Retour();
-                StartCoroutine(canrecup());
+                StartCoroutine(Canrecup());
             }
         }
     }
 
-    void Shoot()
+    //Envoi le Boomerang vers l'avant
+    void Pars()
     {
-
         transform.Translate(Vector3.up*3f*Time.deltaTime);
-        transform.Translate(Vector3.forward * vitesse * Time.deltaTime);
+        transform.Translate(Vector3.forward * _vitesse * Time.deltaTime);
         retour = lancer.transform.position;
     }
 
+    //Fais en sorte que le Boomerang revienne vers le joueur
     void Retour()
     {
         Vector3 position = transform.position;
         Vector3 position_cible = retour;
-        float a = vitesse * Time.deltaTime;
+        float a = _vitesse * Time.deltaTime;
         transform.Translate(Vector3.up * 3f * Time.deltaTime);
         transform.position = Vector3.MoveTowards(position, position_cible, a);
     }
-
-    IEnumerator canrecup()
+    //Fais en sorte que le joueur doit attendre avant de pouvoir récupéré le boomerang
+    IEnumerator Canrecup()
     {
         yield return new WaitForSeconds(1f);
-        isthrow = false;
+        _isthrow = false;
     }
+
 
     void OnCollisionEnter(Collision other)
     {
-        if (isthrow == false)
+        if (_isthrow == false)
         {
             if (other.gameObject.tag == "Player"  )
             {
@@ -87,10 +88,6 @@ public class Boomerang : MonoBehaviour
                     Destroy(gameObject);
                     var b = other.gameObject.GetComponent<PlayerControllerAmbre>().lancer = true;
                 }
-            }
-            else
-            {
-
             }
         }
     }

@@ -28,7 +28,7 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
             ""id"": ""b2a27433-eefb-4da2-85fb-37ab96d59d01"",
             ""actions"": [
                 {
-                    ""name"": ""Shoot"",
+                    ""name"": ""Pars"",
                     ""type"": ""Button"",
                     ""id"": ""030f441e-98b9-42a2-a405-93a048f1add2"",
                     ""expectedControlType"": ""Button"",
@@ -38,7 +38,7 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""Movement"",
-                    ""type"": ""Value"",
+                    ""type"": ""_Value"",
                     ""id"": ""47c96644-7321-442a-9bee-088a6d42ab9f"",
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
@@ -47,7 +47,7 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""Vise"",
-                    ""type"": ""Value"",
+                    ""type"": ""_Value"",
                     ""id"": ""30fb921f-1482-4ea2-beeb-bb0de335a443"",
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
@@ -63,7 +63,7 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
-                    ""action"": ""Shoot"",
+                    ""action"": ""Pars"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -251,7 +251,7 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
 }");
         // Player
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
-        m_Player_Shoot = m_Player.FindAction("Shoot", throwIfNotFound: true);
+        m_Player_Shoot = m_Player.FindAction("Pars", throwIfNotFound: true);
         m_Player_Movement = m_Player.FindAction("Movement", throwIfNotFound: true);
         m_Player_Vise = m_Player.FindAction("Vise", throwIfNotFound: true);
         // UI

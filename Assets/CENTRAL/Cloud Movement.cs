@@ -9,8 +9,6 @@ public class CloudMovement : MonoBehaviour
         StartCoroutine(Cloudspawn());
     }
 
-   
-
     IEnumerator Cloudspawn()
     {
         while (true)
@@ -20,7 +18,4 @@ public class CloudMovement : MonoBehaviour
             yield return new WaitForSeconds(2f);
         }
     }
-
- 
-
 }

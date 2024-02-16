@@ -4,23 +4,23 @@ using UnityEngine.InputSystem;
 public class Pause : MonoBehaviour
 {
     public GameObject pausemenu;
-    private bool pauseeffective = false;
+    private bool _pauseeffective = false;
 
     public void OnPause(InputAction.CallbackContext context)
     {
         if (context.performed)
         {
-            if (pauseeffective == false)
+            if (_pauseeffective == false)
             {
                 pausemenu.SetActive(true);
-                pauseeffective = true;
+                _pauseeffective = true;
                 Time.timeScale = 0;
             }
 
             else
             {
                 pausemenu.SetActive(false);
-                pauseeffective = false;
+                _pauseeffective = false;
                 Time.timeScale = 1;
             }
         }
@@ -30,7 +30,7 @@ public class Pause : MonoBehaviour
     public void OnReprendre()
     {
         pausemenu.SetActive(false);
-        pauseeffective = false;
+        _pauseeffective = false;
         Time.timeScale = 1;
     }
 }

@@ -3,12 +3,14 @@ using UnityEngine.InputSystem;
 
 public class AddIdPlayer : MonoBehaviour
 {
-    private int nb_joueur = 0;
+    private int _NbJoueur = 0;
 
     //Aide de prof + Lyta
+    //Ce script sert à faire sapwn un joueur lorsque qu'il appuie sur une bouton
+    //Cependant le joueur ne pourra pas avoir le meme identifiant
     public void OnPlayerJoined(PlayerInput input)
     {
-        nb_joueur++;
-        input.gameObject.GetComponent<PlayerControllerAmbre>().id = nb_joueur;
+        _NbJoueur++;
+        input.gameObject.GetComponent<PlayerControllerAmbre>().id = _NbJoueur;
     }
 }

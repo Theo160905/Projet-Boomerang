@@ -2368,6 +2368,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b133353dbcc4b624c831a123f688981d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Scene: SceneTest
 --- !u!114 &379060541
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12661,9 +12662,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 500, y: 200}
+  m_AnchoredPosition: {x: 75, y: 10}
   m_SizeDelta: {x: 850, y: 380}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 0, y: 0}
 --- !u!114 &2031375291
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13476,6 +13477,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8423119916867612617, guid: 5894ef1cb1c1a8c4895f8f165c928117, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8280783698151013517}
+    - targetCorrespondingSourceObject: {fileID: 8423119916867612617, guid: 5894ef1cb1c1a8c4895f8f165c928117, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8280783698151013518}
   m_SourcePrefab: {fileID: 100100000, guid: 5894ef1cb1c1a8c4895f8f165c928117, type: 3}
 --- !u!4 &8280783698151013513 stripped
 Transform:
@@ -13528,6 +13532,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_cloud: {fileID: 8280783698151013516}
   speed: 10
+--- !u!65 &8280783698151013518
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8280783698151013514}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0, y: 0, z: 0.2}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

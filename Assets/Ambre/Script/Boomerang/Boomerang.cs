@@ -82,6 +82,15 @@ public class Boomerang : MonoBehaviour
                 {
                     Destroy(other.gameObject);
                 }
+                else
+                {
+                    Destroy(gameObject);
+                    var b = other.gameObject.GetComponent<PlayerControllerAmbre>().lancer = true;
+                }
+            }
+            else
+            {
+
             }
         }
     }

@@ -67,7 +67,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: da6838b1da8dd87499d5009feb0a85b0, type: 2}
+  - {fileID: 2100000, guid: 1b000b4c68aec164fb875cb294a1b170, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -198,12 +198,12 @@ MonoBehaviour:
     m_ActionName: Player/Movement[/Keyboard/upArrow,/Keyboard/downArrow,/Keyboard/leftArrow,/Keyboard/rightArrow,/Keyboard/z,/Keyboard/s,/Keyboard/q,/Keyboard/d]
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: bc6b1817-eb5d-4aff-a834-5b50b1b953bc
-    m_ActionName: UI/New action
-  - m_PersistentCalls:
-      m_Calls: []
     m_ActionId: 30fb921f-1482-4ea2-beeb-bb0de335a443
     m_ActionName: Player/Vise
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 2a6e400e-91c7-4119-b4df-cabb721f9c44
+    m_ActionName: UI/Pause[/XInputControllerWindows/start,/Keyboard/escape]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Gamepad
   m_DefaultActionMap: Player

@@ -1,0 +1,6 @@
+Bonus :
+- Mettre de vrais personnages (pas eu le temps + complication sur l’intégration des modèles)
+- Avoir une visée avec le joystick droit (pas eu le temps + compliqué à faire)
+- Faire en sorte que lorsque le joueur n’a pas de boomerang le joueur peut mettre des coups de point au corps à corps (pas eu le temps)
+- Mettre animation de taunt/dancer (pas eu le temps complication sur l’intégration des modèles)
+La plupart des bonus on soit commencer à être fait ou abandonner parce qu'il nous manquais du temps car on a eu des complications avec le coreGameplay
